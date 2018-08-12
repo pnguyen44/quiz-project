@@ -122,7 +122,7 @@ $('#question').on('submit', function() {
      $('.close').hide()
    if (chosen === quest.answer) {
      console.log('correct got here')
-     $('.message').html('Good Jobs!')
+     $('.message').html('Good Job!')
      questionNumber +=1
      score +=1
      console.log('quest numb', questionNumber)
