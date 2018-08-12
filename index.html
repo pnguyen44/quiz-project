@@ -42,6 +42,50 @@
     </div>
   </div>
 
+  <!-- Question Modal-->
+<div class="modal fade" id="question" tabindex="-1" role="dialog" aria-labelledby="questionLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="questionLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <p class="message"></p>
+        <!-- <button type="button" class="hidden btn btn-primary btn-sx btn-wrong btn-replay">Replay Video</button>
+        <button type="button" class="hidden btn btn-primary btn-sx btn-wrong btn-give-answer">Give Me Answer</button> -->
+
+
+      </div>
+      <div class="modal-body">
+        <form id ='quizForm'>
+        <div class="radio">
+        <input class = 'options' type="radio" name="choice"><span id="option1"></span>
+        </div>
+        <div class="radio">
+        <input class = 'options' type="radio" name="choice"><span id="option2"></span>
+        </div>
+        <div class="radio">
+        <input class = 'options' type="radio" name="choice"> <span id="option3"></span>
+        </div>
+        <!-- <br> -->
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+        <button type="submit" class="btn btn-primary btn-submit pull-right" name="submit" value="Submit">Submit</button>
+        <!-- <button type="button" class="btn btn-secondary pull-right" data-dismiss="modal">Close</button> -->
+        </form>
+      <!-- </div> -->
+      <div class="modal-footer">
+        <!-- <button type="submit" class="btn btn-primary btn-submit pull-right" name="submit" value="Submit">Submit</button> -->
+        <button type="button" class="btn btn-primary btn-sx btn-wrong pull-right btn-replay">Replay Video</button>
+        <button type="button" class="btn btn-danger btn-sx btn-wrong pulll-right btn-give-answer">Give Me Answer</button>
+        <button type="button" class="btn btn-primary btn-sx pull-right btn-continue">Continue With Video</button>
+        <button type="button" class="btn btn-primary btn-sx pull-right btn-results">Get Score</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 
 </html>
