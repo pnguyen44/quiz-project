@@ -62,4 +62,45 @@ $(() => {
         $('#question').modal('show')
     }
   }
+
+  $('.btn-replay').on('click', function () {
+    $('#question').modal('hide')
+    vid.currentTime = questions[questionNumber -1].times[0]
+    vid.play()
+    // console.log('replay clicked')
+  })
+
+  $('.btn-give-answer').on('click', function () {
+    $('.message').html("The correct answer is " + questions[questionNumber - 1].answer)
+    // $('#question').modal('hide')
+    if (questionNumber < questions.length) {
+      $('.btn-continue').show()
+    } else {
+      $('.btn-results').show()
+    }
+    $('.btn-wrong').hide()
+    questionNumber += 1
+
+    // console.log('replay clicked')
+  })
+  $('.btn-continue').on('click', function() {
+    vid.play()
+    $('#question').modal('hide')
+  })
+
+  $('.btn-results').on('click', function() {
+    $('#question').modal('hide')
+    displayResults()
+  })
+
+  $('.btn-retake').on('click', function() {
+    chosen = ''
+    score = 0;
+    questionNumber = 1;
+    vid.currentTime = 0
+    vid.play()
+    $('#resultsModal').modal('hide')
+    console.log('restart')
+  })
+
 })
