@@ -103,4 +103,50 @@ $(() => {
     console.log('restart')
   })
 
+  $("#quizForm").submit(function(e){
+    e.preventDefault();
+  });
+
+$('#quizForm input').on('click', function() {
+  chosen = $(this).next().html()
+ // console.log('chosen', chosen);
+});
+
+$('#question').on('submit', function() {
+  // chosen = $(this).val()
+  $('.message').html('')
+ // console.log('chosen sub', chosen);
+ if (chosen !== '') {
+     $('.close').hide()
+   if (chosen === questions[questionNumber - 1].answer) {
+     // console.log('correct')
+     // $('#question').modal('hide')
+     $('.message').html('Good Jobs!')
+     // $('.btn-submit').prop("disabled", true);
+     questionNumber +=1
+     score +=1
+     console.log('quest numb', questionNumber)
+     console.log('score is ', score)
+     $('.btn-submit').hide()
+     if (questionNumber < questions.length + 1) {
+       $('.btn-continue').show()
+     }
+
+       if (questionNumber ===questions.length + 1) {
+         // $('#question').modal('hide')
+         $('.btn-results').show()
+         // displayResults()
+        // console.log('You scored ' + score/questions.length * 100 + '%')
+       }
+
+     } else {
+       $('.message').html('Incorrect!')
+        // $('<button type="button" class="btn btn-primary btn-sx btn-replay">Replay Video</button>').appendTo('.message');
+        $('.btn-wrong').show()
+        $('.btn-submit').hide()
+      // $('.btn-submit').prop("disabled", true);
+     }
+  }
+  });
+
 })
