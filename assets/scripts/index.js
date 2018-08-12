@@ -3,36 +3,80 @@ $(() => {
   let chosen = ''
   let score = 0;
   let questionNumber = 1;
-  let vid = document.getElementById("video");
-  let currentTime = vid.currentTime
-  let questions = [
-    {
-      'question': 'What is Apple\'s most lucrative product of 2015?',
-      'options': ['iphone', 'BApple Watch', 'Ipad'],
-      'answer': 'iphone',
-      'times': [0,2]
-    },
-    {
-      'question': 'Who invented the tablet?',
-      'options': ['Microsoft', 'Google', 'Apple'],
-      'answer': 'Google',
-      'times': [2.1,4]
-    },
-    {
-      'question': 'In 1999 who created the first mp3 phone?',
-      'options': ['Toshiba', 'Samsung', 'Sony'],
-      'answer': 'Sony',
-      'times': [4.1,7]
-    }
-  ]
-
+  let vid ='';
+  let currentTime = '';
+  let id = ''
+  // let video = ''
+  let quest = ''
+  let questions = {
+	"video1": {
+		"url": "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
+		"questions": [{
+				"question": "What is Apple most lucrative product of 201?",
+				"options": ['iphone', 'BApple Watch', 'Ipad'],
+				"answer": "iphone",
+				"times": [0, 2]
+			},
+			{
+				"question": "Who invented the tablet?",
+				"options": ['Microsoft', 'Google', 'Apple'],
+				"answer": "Google",
+				"times": [2.1, 4]
+			},
+			{
+				"question": "In 1999 who created the first mp3 phone?",
+				"options": ['Toshiba', 'Samsung', 'Sony'],
+				"answer": "Sony",
+				"times": [4.1, 7]
+			}
+		]
+	},
+}
+   // let json = question
+   // let questionsObj = JSON.parse(questions);
+   // console.log('objlll', questionsObj)
+// }
+  // let questions = [
+  //   {
+  //     'question': 'What is Apple\'s most lucrative product of 2015?',
+  //     'options': ['iphone', 'BApple Watch', 'Ipad'],
+  //     'answer': 'iphone',
+  //     'times': [0,2]
+  //   },
+  //   {
+  //     'question': 'Who invented the tablet?',
+  //     'options': ['Microsoft', 'Google', 'Apple'],
+  //     'answer': 'Google',
+  //     'times': [2.1,4]
+  //   },
+  //   {
+  //     'question': 'In 1999 who created the first mp3 phone?',
+  //     'options': ['Toshiba', 'Samsung', 'Sony'],
+  //     'answer': 'Sony',
+  //     'times': [4.1,7]
+  //   }
+  // ]
+getVideo()
+  function getVideo() {
+    // console.log('url', questions.video1.url)
+    $('#video1').attr('src', questions.video1.url)
+  }
 
   $("video").on('playing', function () {
-    video.addEventListener("timeupdate", pauseForQuestion);
+    id = $(this).attr('id')
+    vid = document.getElementById(id);
+    currentTime  = vid.currentTime
+    // console.log('vid is', currentTime)
+    // video = questions[id]
+    // let vid = document.getElementById(id);
+    // console.log('vido playing', $(this))
+    // console.log('vido playing', id)
+    $(this).on("timeupdate", pauseForQuestion);
   });
 
   function  pauseForQuestion(){
-    if(this.currentTime >= questions[questionNumber -1].times[1]) {
+    // console.log('id test', questions[id].questions[questionNumber -1].times[1])
+    if(this.currentTime >= questions[id].questions[questionNumber -1].times[1]){
         this.pause();
         displayQuestion();
         // remove the event listener after you paused the playback
@@ -41,21 +85,26 @@ $(() => {
   };
 
   function displayQuestion () {
-    // console.log('currentTime', vid.currentTime)
     $('.close').show()
     $('.btn-results').hide()
     $('.btn-continue').hide()
     $('.btn-wrong').hide()
     $('.btn-submit').show()
-    if(questionNumber < questions.length + 1) {
+    quest = questions[id].questions[questionNumber -1]
+    console.log('qeust', quest)
+    if(questionNumber < questions[id].questions.length + 1) {
+      console.log('got hre', questionNumber)
+
       chosen = ''
       $('input[name="choice"]').prop('checked', false);
+      // quest = questions[id].questions[questionNumber -1]
+      // console.log('qeust', question)
       for(let i = 0; i < 3; i++) {
         let elm = '#option' + (i +1)
-        $(elm).html(questions[questionNumber - 1].options[i])
-        // console.log(elm)
+        $(elm).html(quest.options[i])
+        console.log('text', quest.options[i])
       }
-      $('.modal-title').html(questions[questionNumber -1].question)
+      $('.modal-title').html(quest.question)
         $('#question').modal({backdrop: 'static', keyboard: false})
         $('.message').html('')
         // $('.btn-submit').prop("disabled", false);
@@ -65,15 +114,15 @@ $(() => {
 
   $('.btn-replay').on('click', function () {
     $('#question').modal('hide')
-    vid.currentTime = questions[questionNumber -1].times[0]
+    vid.currentTime = quest.times[0]
     vid.play()
     // console.log('replay clicked')
   })
 
   $('.btn-give-answer').on('click', function () {
-    $('.message').html("The correct answer is " + questions[questionNumber - 1].answer)
+    $('.message').html("The correct answer is " + quest.answer)
     // $('#question').modal('hide')
-    if (questionNumber < questions.length) {
+    if (questionNumber < questions[id].questions.length) {
       $('.btn-continue').show()
     } else {
       $('.btn-results').show()
@@ -118,7 +167,7 @@ $('#question').on('submit', function() {
  // console.log('chosen sub', chosen);
  if (chosen !== '') {
      $('.close').hide()
-   if (chosen === questions[questionNumber - 1].answer) {
+   if (chosen === quest.answer) {
      // console.log('correct')
      // $('#question').modal('hide')
      $('.message').html('Good Jobs!')
@@ -128,11 +177,11 @@ $('#question').on('submit', function() {
      console.log('quest numb', questionNumber)
      console.log('score is ', score)
      $('.btn-submit').hide()
-     if (questionNumber < questions.length + 1) {
+     if (questionNumber < questions[id].questions.length + 1) {
        $('.btn-continue').show()
      }
 
-       if (questionNumber ===questions.length + 1) {
+       if (questionNumber === questions[id].questions.length + 1) {
          // $('#question').modal('hide')
          $('.btn-results').show()
          // displayResults()
