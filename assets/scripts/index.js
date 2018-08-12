@@ -39,4 +39,27 @@ $(() => {
         this.removeEventListener("timeupdate",pauseForQuestion);
     }
   };
+
+  function displayQuestion () {
+    // console.log('currentTime', vid.currentTime)
+    $('.close').show()
+    $('.btn-results').hide()
+    $('.btn-continue').hide()
+    $('.btn-wrong').hide()
+    $('.btn-submit').show()
+    if(questionNumber < questions.length + 1) {
+      chosen = ''
+      $('input[name="choice"]').prop('checked', false);
+      for(let i = 0; i < 3; i++) {
+        let elm = '#option' + (i +1)
+        $(elm).html(questions[questionNumber - 1].options[i])
+        // console.log(elm)
+      }
+      $('.modal-title').html(questions[questionNumber -1].question)
+        $('#question').modal({backdrop: 'static', keyboard: false})
+        $('.message').html('')
+        // $('.btn-submit').prop("disabled", false);
+        $('#question').modal('show')
+    }
+  }
 })
