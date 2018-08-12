@@ -27,4 +27,16 @@ $(() => {
   ]
 
 
+  $("video").on('playing', function () {
+    video.addEventListener("timeupdate", pauseForQuestion);
+  });
+
+  function  pauseForQuestion(){
+    if(this.currentTime >= questions[questionNumber -1].times[1]) {
+        this.pause();
+        displayQuestion();
+        // remove the event listener after you paused the playback
+        this.removeEventListener("timeupdate",pauseForQuestion);
+    }
+  };
 })
