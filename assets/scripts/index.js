@@ -200,7 +200,7 @@ $('#question').on('submit', function() {
 
   function displayResults() {
     // $('<p> You scored ' + Math.round(score/questions.length * 100) + '%' + '</p>').appendTo('.results-modal-body');
-    $('.results-title').html('You scored ' + Math.round(score/questions.length * 100) + '%')
+    $('.results-title').html('You scored ' + Math.round(score/questions[id].questions.length * 100) + '%')
     $('#resultsModal').modal('show')
   }
 
