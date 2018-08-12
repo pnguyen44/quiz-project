@@ -10,7 +10,7 @@ $(() => {
   let quest = ''
   let questions = {
 	"video1": {
-		"url": "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
+		"url": "https://www.apple.com/105/media/us/mac/family/2018/46c4b917_abfd_45a3_9b51_4e3054191797/films/bruce/mac-bruce-tpl-cc-us-2018_1280x720h.mp4",
 		"questions": [{
 				"question": "What is Apple most lucrative product of 201?",
 				"options": ['iphone', 'BApple Watch', 'Ipad'],
@@ -91,9 +91,9 @@ getVideo()
     $('.btn-wrong').hide()
     $('.btn-submit').show()
     quest = questions[id].questions[questionNumber -1]
-    console.log('qeust', quest)
+    // console.log('qeust', quest)
     if(questionNumber < questions[id].questions.length + 1) {
-      console.log('got hre', questionNumber)
+      // console.log('got hre', questionNumber)
 
       chosen = ''
       $('input[name="choice"]').prop('checked', false);
@@ -102,7 +102,7 @@ getVideo()
       for(let i = 0; i < 3; i++) {
         let elm = '#option' + (i +1)
         $(elm).html(quest.options[i])
-        console.log('text', quest.options[i])
+        // console.log('text', quest.options[i])
       }
       $('.modal-title').html(quest.question)
         $('#question').modal({backdrop: 'static', keyboard: false})
@@ -149,7 +149,7 @@ getVideo()
     vid.currentTime = 0
     vid.play()
     $('#resultsModal').modal('hide')
-    console.log('restart')
+  //   console.log('restart')
   })
 
   $("#quizForm").submit(function(e){
@@ -168,7 +168,7 @@ $('#question').on('submit', function() {
  if (chosen !== '') {
      $('.close').hide()
    if (chosen === quest.answer) {
-     // console.log('correct')
+     console.log('correct got here')
      // $('#question').modal('hide')
      $('.message').html('Good Jobs!')
      // $('.btn-submit').prop("disabled", true);
