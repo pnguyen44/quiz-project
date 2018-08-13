@@ -10,21 +10,21 @@ $(() => {
   const config = {
 		"url": "https://www.apple.com/105/media/us/mac/family/2018/46c4b917_abfd_45a3_9b51_4e3054191797/films/bruce/mac-bruce-tpl-cc-us-2018_1280x720h.mp4",
 		"questions": [{
-				"question": "What medical condition does this man have?",
-				"options": ['legally blind', 'heart disease', 'lung cancer'],
-				"answer": 'legally blind',
+				"question": "What medical condition does Bruce have?",
+				"options": ['A. legally blind', 'B. heart disease', 'C. lung cancer'],
+				"answer": 'A. legally blind',
 				"times": [0, 18]
 			},
 			{
-				"question": "What does this man use a Macbook for?",
-				"options": ['drawing', 'games', 'photography'],
-				"answer": "photography",
+				"question": "What does Bruce use a Macbook for?",
+				"options": ['A. drawing', 'B. games', 'C. photography'],
+				"answer": "C. photography",
 				"times": [18.1, 37]
 			},
 			{
-				"question": "What apple product helped him improve his eye sight?",
-				"options": ['MacbookPro', 'iPhone', 'Macbook'],
-				"answer": "Macbook",
+				"question": "What apple product helped Bruce improve his eye sight?",
+				"options": ['A. MacbookPro', 'B. iPhone', 'C. Macbook'],
+				"answer": "C. Macbook",
 				"times": [37.1, 60]
 			}
 		]}
