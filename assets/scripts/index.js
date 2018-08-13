@@ -81,7 +81,7 @@ $(() => {
   $('.btn-give-answer').on('click', function () {
     $('.message').html("The correct answer is " + quiz.answer)
     if (questionNumber < questions.length) {
-      $('.btn-continue').show()
+      continueWithVideo()
     } else {
       $('.btn-results').show()
     }
@@ -89,10 +89,10 @@ $(() => {
     questionNumber += 1
   })
 
-  $('.btn-continue').on('click', function() {
-    vid.play()
-    $('#questionModal').modal('hide')
-  })
+  // $('.btn-continue').on('click', function() {
+  //   vid.play()
+  //   $('#questionModal').modal('hide')
+  // })
 
   $('.btn-results').on('click', function() {
     $('#questionModal').modal('hide')
@@ -126,9 +126,8 @@ $('#questionModal').on('submit', function() {
      score +=1
      $('.btn-submit').hide()
      if (questionNumber < questions.length + 1) {
-       $('.btn-continue').show()
+       continueWithVideo()
      }
-
        if (questionNumber === questions.length + 1) {
          $('.btn-results').show()
        }
@@ -140,6 +139,13 @@ $('#questionModal').on('submit', function() {
      }
    }
   });
+
+  function continueWithVideo() {
+    setTimeout(function() {
+      $('#questionModal').modal('hide');
+      vid.play()
+    }, 2000);
+  }
 
   function displayResults() {
     $('.results-title').html('You scored ' + Math.round(score/questions.length * 100) + '%')
