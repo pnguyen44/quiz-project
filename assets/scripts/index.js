@@ -124,12 +124,9 @@ $('#question').on('submit', function() {
  if (chosen !== '') {
      $('.close').hide()
    if (chosen === quiz.answer) {
-     console.log('correct got here')
      $('.message').html('Good Job!')
      questionNumber +=1
      score +=1
-     console.log('quest numb', questionNumber)
-     console.log('score is ', score)
      $('.btn-submit').hide()
      if (questionNumber < questions.length + 1) {
        $('.btn-continue').show()
