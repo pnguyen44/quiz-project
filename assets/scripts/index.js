@@ -8,7 +8,6 @@ $(() => {
   let quiz = ''
   let questions = ''
   const config = {
-	"video1": {
 		"url": "https://www.apple.com/105/media/us/mac/family/2018/46c4b917_abfd_45a3_9b51_4e3054191797/films/bruce/mac-bruce-tpl-cc-us-2018_1280x720h.mp4",
 		"questions": [{
 				"question": "What medical condition does this man have?",
@@ -28,11 +27,10 @@ $(() => {
 				"answer": "Macbook",
 				"times": [37.1, 60]
 			}
-		]},
-  }
+		]}
 
   function getVideo() {
-  $('#video1').attr('src', config.video1.url)
+  $('#video1').attr('src', config.url)
   }
 
   getVideo()
@@ -41,7 +39,7 @@ $(() => {
     id = $(this).attr('id')
     vid = document.getElementById(id);
     currentTime  = vid.currentTime
-    questions = config[id].questions
+    questions = config.questions
     $(this).on("timeupdate", pauseForQuestion);
   });
 
