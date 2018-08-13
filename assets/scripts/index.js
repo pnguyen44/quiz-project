@@ -89,11 +89,6 @@ $(() => {
     questionNumber += 1
   })
 
-  // $('.btn-continue').on('click', function() {
-  //   vid.play()
-  //   $('#questionModal').modal('hide')
-  // })
-
   $('.btn-results').on('click', function() {
     $('#questionModal').modal('hide')
     displayResults()
