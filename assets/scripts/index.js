@@ -30,7 +30,7 @@ $(() => {
 		]}
 
   function getVideo() {
-  $('#video1').attr('src', config.url)
+  $('#video').attr('src', config.url)
   }
 
   getVideo()
