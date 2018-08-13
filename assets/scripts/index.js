@@ -11,22 +11,22 @@ $(() => {
 	"video1": {
 		"url": "https://www.apple.com/105/media/us/mac/family/2018/46c4b917_abfd_45a3_9b51_4e3054191797/films/bruce/mac-bruce-tpl-cc-us-2018_1280x720h.mp4",
 		"questions": [{
-				"question": "What is Apple most lucrative product of 201?",
-				"options": ['iphone', 'BApple Watch', 'Ipad'],
-				"answer": "iphone",
-				"times": [0, 2]
+				"question": "What medical condition does this man have?",
+				"options": ['legally blind', 'heart disease', 'lung cancer'],
+				"answer": 'legally blind',
+				"times": [0, 18]
 			},
 			{
-				"question": "Who invented the tablet?",
-				"options": ['Microsoft', 'Google', 'Apple'],
-				"answer": "Google",
-				"times": [2.1, 4]
+				"question": "What does this man use a Macbook for?",
+				"options": ['drawing', 'games', 'photography'],
+				"answer": "photography",
+				"times": [18.1, 37]
 			},
 			{
-				"question": "In 1999 who created the first mp3 phone?",
-				"options": ['Toshiba', 'Samsung', 'Sony'],
-				"answer": "Sony",
-				"times": [4.1, 7]
+				"question": "What apple product helped him improve his eye sight?",
+				"options": ['MacbookPro', 'iPhone', 'Macbook'],
+				"answer": "Macbook",
+				"times": [37.1, 60]
 			}
 		]},
   }
@@ -137,7 +137,7 @@ $('#question').on('submit', function() {
        }
 
      } else {
-       $('.message').html('Incorrect!')
+       $('.message').html('Incorrect')
         $('.btn-wrong').show()
         $('.btn-submit').hide()
      }
