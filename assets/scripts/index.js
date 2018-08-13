@@ -60,7 +60,6 @@ $(() => {
     $('.btn-continue').hide()
     $('.btn-wrong').hide()
     $('.btn-submit').show()
-    // quiz = config[id].questions[questionNumber -1]
     if(questionNumber < questions.length + 1) {
       chosen = ''
       $('input[name="choice"]').prop('checked', false);
