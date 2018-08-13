@@ -6,7 +6,7 @@ $(() => {
   let currentTime = '';
   let id = ''
   let quiz = ''
-  let questiions = ''
+  let questions = ''
   const config = {
 	"video1": {
 		"url": "https://www.apple.com/105/media/us/mac/family/2018/46c4b917_abfd_45a3_9b51_4e3054191797/films/bruce/mac-bruce-tpl-cc-us-2018_1280x720h.mp4",
