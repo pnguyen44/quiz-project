@@ -144,6 +144,7 @@ $('#questionModal').on('submit', function() {
 
   function displayResults() {
     $('.results-title').html('You scored ' + Math.round(score/questions.length * 100) + '%')
+    $('#resultsModal').modal({backdrop: 'static', keyboard: false})
     $('#resultsModal').modal('show')
   }
 

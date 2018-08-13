@@ -9,6 +9,7 @@
 
 form {
   margin-left: 26px;
+  font-size: 15px;
 
 }
 footer {
@@ -29,13 +30,15 @@ footer {
 
 .message{
   color: red;
-  font-size: 15px;
-
+  font-size: 17px;
+  margin-top: 12px;
+  margin-bottom: -3px;
 }
+
 .modal-content {
-  margin-top: 200px;
-
+  margin-top: 160px;
 }
+
 .modal-title {
   font-size: 20px;
 }
