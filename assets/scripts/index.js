@@ -66,14 +66,14 @@ $(() => {
         $(elm).html(quiz.options[i])
       }
       $('.modal-title').html(quiz.question)
-        $('#question').modal({backdrop: 'static', keyboard: false})
+        $('#questionModal').modal({backdrop: 'static', keyboard: false})
         $('.message').html('')
-        $('#question').modal('show')
+        $('#questionModal').modal('show')
     }
   }
 
   $('.btn-replay').on('click', function () {
-    $('#question').modal('hide')
+    $('#questionModal').modal('hide')
     vid.currentTime = quiz.times[0]
     vid.play()
   })
@@ -91,11 +91,11 @@ $(() => {
 
   $('.btn-continue').on('click', function() {
     vid.play()
-    $('#question').modal('hide')
+    $('#questionModal').modal('hide')
   })
 
   $('.btn-results').on('click', function() {
-    $('#question').modal('hide')
+    $('#questionModal').modal('hide')
     displayResults()
   })
 
@@ -116,7 +116,7 @@ $('#quizForm input').on('click', function() {
   chosen = $(this).next().html()
 });
 
-$('#question').on('submit', function() {
+$('#questionModal').on('submit', function() {
   $('.message').html('')
  if (chosen !== '') {
      $('.close').hide()
