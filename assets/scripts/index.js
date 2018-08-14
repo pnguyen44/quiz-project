@@ -6,7 +6,6 @@ $(() => {
   let currentTime = '';
   let id = ''
   let quiz = ''
-  let questions = ''
   const config = {
 		"url": "https://www.apple.com/105/media/us/mac/family/2018/46c4b917_abfd_45a3_9b51_4e3054191797/films/bruce/mac-bruce-tpl-cc-us-2018_1280x720h.mp4",
 		"questions": [{
@@ -29,6 +28,8 @@ $(() => {
 			}
 		]}
 
+  let questions = config.questions
+
   function getVideo() {
   $('#video').attr('src', config.url)
   }
@@ -39,7 +40,6 @@ $(() => {
     id = $(this).attr('id')
     vid = document.getElementById(id);
     currentTime  = vid.currentTime
-    questions = config.questions
     $(this).on("timeupdate", pauseForQuestion);
   });
 
