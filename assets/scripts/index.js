@@ -2,7 +2,7 @@ $(() => {
   let chosen = ''
   let score = 0;
   let questionNumber = 1;
-  let vid = '';
+  let vid
   let currentTime = '';
   let id = ''
   let quiz = ''
@@ -34,11 +34,11 @@ $(() => {
   function getVideo() {
     $('#video').attr('src', config.url)
   }
-  
+
   function pauseForQuestion() {
     quiz = questions[questionNumber - 1]
     if (this.currentTime >= quiz.times[1]) {
-      this.pause();
+      vid.pause();
       displayQuestion();
       this.removeEventListener("timeupdate", pauseForQuestion);
     }
@@ -83,7 +83,7 @@ $(() => {
     $('#resultsModal').modal('show')
   }
 
-  const reset = function() {
+  function reset() {
     chosen = ''
     score = 0;
     questionNumber = 1;
