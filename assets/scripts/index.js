@@ -71,7 +71,7 @@ $(() => {
     setTimeout(function() {
       $('#questionModal').modal('hide');
       vid.play()
-    }, 2000);
+    }, 1000);
   }
 
   function displayResults() {
