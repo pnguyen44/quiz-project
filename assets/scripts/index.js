@@ -103,6 +103,12 @@ $(() => {
     $('#resultsModal').modal('hide')
   })
 
+  $('.btn-close').on('click', function () {
+      // reset Test
+      questionNumber = 1
+      score = 0
+  })
+
   $("#quizForm").submit(function(e){
     e.preventDefault();
   });
@@ -139,7 +145,7 @@ $('#questionModal').on('submit', function() {
     setTimeout(function() {
       $('#questionModal').modal('hide');
       vid.play()
-    }, 2000);
+    }, 1000);
   }
 
   function displayResults() {
