@@ -148,7 +148,7 @@ $('#questionModal').on('submit', function() {
     setTimeout(function() {
       $('#questionModal').modal('hide');
       vid.play()
-    }, 1000);
+    }, 2000);
   }
 
   function displayResults() {
