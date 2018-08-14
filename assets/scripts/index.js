@@ -95,18 +95,21 @@ $(() => {
   })
 
   $('.btn-retake').on('click', function() {
-    chosen = ''
-    score = 0;
-    questionNumber = 1;
+    reset()
     vid.currentTime = 0
     vid.play()
     $('#resultsModal').modal('hide')
   })
 
+  const reset = function() {
+    chosen = ''
+    score = 0;
+    questionNumber = 1;
+  }
+
   $('.btn-close').on('click', function () {
       // reset Test
-      questionNumber = 1
-      score = 0
+      reset()
   })
 
   $("#quizForm").submit(function(e){
