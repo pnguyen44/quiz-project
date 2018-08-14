@@ -34,16 +34,7 @@ $(() => {
   function getVideo() {
     $('#video').attr('src', config.url)
   }
-
-  getVideo()
-
-  $("video").on('playing', function() {
-    id = $(this).attr('id')
-    vid = document.getElementById(id);
-    currentTime = vid.currentTime
-    $(this).on("timeupdate", pauseForQuestion);
-  });
-
+  
   function pauseForQuestion() {
     quiz = questions[questionNumber - 1]
     if (this.currentTime >= quiz.times[1]) {
@@ -76,6 +67,37 @@ $(() => {
     }
   }
 
+  function continueWithVideo() {
+    setTimeout(function() {
+      $('#questionModal').modal('hide');
+      vid.play()
+    }, 2000);
+  }
+
+  function displayResults() {
+    $('.results-title').html('You scored ' + Math.round(score / questions.length * 100) + '%')
+    $('#resultsModal').modal({
+      backdrop: 'static',
+      keyboard: false
+    })
+    $('#resultsModal').modal('show')
+  }
+
+  const reset = function() {
+    chosen = ''
+    score = 0;
+    questionNumber = 1;
+  }
+
+  getVideo()
+
+  $("video").on('playing', function() {
+    id = $(this).attr('id')
+    vid = document.getElementById(id);
+    currentTime = vid.currentTime
+    $(this).on("timeupdate", pauseForQuestion);
+  });
+
   $('.btn-replay').on('click', function() {
     $('#questionModal').modal('hide')
     vid.currentTime = quiz.times[0]
@@ -105,12 +127,6 @@ $(() => {
     $('#resultsModal').modal('hide')
   })
 
-  const reset = function() {
-    chosen = ''
-    score = 0;
-    questionNumber = 1;
-  }
-
   $('.btn-close').on('click', function() {
     // reset Test
     reset()
@@ -139,7 +155,6 @@ $(() => {
         if (questionNumber === questions.length + 1) {
           $('.btn-results').show()
         }
-
       } else {
         $('.message').html('Incorrect')
         $('.btn-wrong').show()
@@ -147,21 +162,4 @@ $(() => {
       }
     }
   });
-
-  function continueWithVideo() {
-    setTimeout(function() {
-      $('#questionModal').modal('hide');
-      vid.play()
-    }, 2000);
-  }
-
-  function displayResults() {
-    $('.results-title').html('You scored ' + Math.round(score / questions.length * 100) + '%')
-    $('#resultsModal').modal({
-      backdrop: 'static',
-      keyboard: false
-    })
-    $('#resultsModal').modal('show')
-  }
-
 })
