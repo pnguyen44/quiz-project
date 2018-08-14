@@ -28,7 +28,7 @@ $(() => {
 			}
 		]}
 
-  let questions = config.questions
+  const questions = config.questions
 
   function getVideo() {
   $('#video').attr('src', config.url)
