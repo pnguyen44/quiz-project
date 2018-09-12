@@ -1,6 +1,6 @@
 # QuizMe
 
-A video quiz with three questions to test your memory of the videos content.
+A video quiz with three questions to test your memory of the video's content.
 
 ## User Stories
 
